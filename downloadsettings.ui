@@ -124,7 +124,7 @@
       <item>
        <widget class="QRadioButton" name="radioPartialContinue">
         <property name="text">
-         <string>RadioButton</string>
+         <string>PartialThenContinue</string>
         </property>
        </widget>
       </item>

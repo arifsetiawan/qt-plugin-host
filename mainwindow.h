@@ -4,6 +4,10 @@
 #include <QMainWindow>
 #include <QSettings>
 
+#include "downloadinterface.h"
+#include "uploadinterface.h"
+#include "item.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -15,6 +19,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+    DownloadItem MainWindow::downloadForRow(int row) const;
+    UploadItem MainWindow::uploadForRow(int row) const;
 
 private slots:
     void on_newdownloadButton_clicked();
@@ -30,11 +37,35 @@ private slots:
     void on_clearUploadButton_clicked();
     void on_settingsUploadButton_clicked();
 
+    void onFilenameSet(const QString &url, const QString &fileName);
+    void onDownloadFinished(const QString &url, const QString &fileName);
+    void onDownloadProgress(const QString &url, const qint64 bytesReceived, const qint64 bytesTotal, const double percent, const double speed, const QString &unit);
+    void onDownloadStatus(const QString &url, const QString &status, const QString &message, const QString &data);
+
+    void onUrlSet(const QString &path, const QString &url);
+    void onUploadFinished(const QString &path, const QString &submitUrl);
+    void onUploadProgress(const QString &path, const qint64 bytesSent, const qint64 bytesTotal, const double percent, const double speed, const QString &unit);
+    void onUploadStatus(const QString &path, const QString &status, const QString &message, const QString &data);
+
 private:
     void loadPlugins();
+    void setupUi();
+    void setupDownloader();
+    void setupUploader();
+
+    int rowOfDownload(const QString &url) const;
+    int rowOfUpload(const QString &path) const;
+
+private:
 
     Ui::MainWindow *ui;
     QSettings *settings;
+
+    DownloadInterface * downloader;
+    UploadInterface * uploader;
+
+    QList<DownloadItem> downloads;
+    QList<UploadItem> uploads;
 };
 
 #endif // MAINWINDOW_H

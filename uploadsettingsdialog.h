@@ -2,6 +2,7 @@
 #define UPLOADSETTINGSDIALOG_H
 
 #include <QDialog>
+#include <QSettings>
 
 #include "ui_uploadsettings.h"
 
@@ -11,12 +12,12 @@ class UploadSettingsDialog : public QDialog
 public:
     explicit UploadSettingsDialog(QWidget *parent = 0);
 
-signals:
-
 public slots:
+    void saveSettings();
 
 private:
     Ui_UploadSettingsDialog ui;
+    QSettings *settings;
 };
 
 #endif // UPLOADSETTINGSDIALOG_H

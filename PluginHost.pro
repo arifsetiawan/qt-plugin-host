@@ -16,11 +16,18 @@ DESTDIR = ../Output
 SOURCES += main.cpp\
         mainwindow.cpp \
     newdialog.cpp \
-    uploadsettingsdialog.cpp
+    uploadsettingsdialog.cpp \
+    downloadsettingsdialog.cpp
 
 HEADERS  += mainwindow.h \
     newdialog.h \
-    uploadsettingsdialog.h
+    uploadsettingsdialog.h \
+    uploadinterface.h \
+    downloadinterface.h \
+    downloadsettingsdialog.h \
+    item.h \
+    downloaditemviewdelegate.h \
+    uploaditemviewdelegate.h
 
 FORMS    += mainwindow.ui \
     newdialog.ui \

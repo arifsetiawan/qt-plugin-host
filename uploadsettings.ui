@@ -28,7 +28,7 @@
         <item>
          <widget class="QRadioButton" name="radioButtonTus">
           <property name="text">
-           <string>tus</string>
+           <string>tus (resumable upload protocol)</string>
           </property>
          </widget>
         </item>
@@ -40,23 +40,7 @@
          </widget>
         </item>
        </layout>
-       <zorder>radioButtonTus</zorder>
-       <zorder>radioButtonTus</zorder>
-       <zorder>radioButtonMultipart</zorder>
       </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
      </item>
     </layout>
    </item>
@@ -132,6 +116,13 @@
         </item>
         <item>
          <widget class="QLineEdit" name="lineChunkSize"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>bytes</string>
+          </property>
+         </widget>
         </item>
         <item>
          <spacer name="horizontalSpacer_3">
